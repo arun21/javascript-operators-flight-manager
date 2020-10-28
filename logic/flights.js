@@ -2,13 +2,13 @@ function Flights() {
   function calculateNumberOfFlights(no_of_pasengers, flight_capacity) {
     let no_of_flights;
 
-    if (no_of_pasengers < 0) {
+    if (no_of_pasengers < 0 || !Number.isInteger(Number(no_of_pasengers))) {
       throw new Error(
         "The number of passengers must be a positive integer value"
       );
     }
 
-    if (flight_capacity < 0) {
+    if (flight_capacity < 0 || !Number.isInteger(Number(flight_capacity))) {
       throw new Error(
         "The capacity of the flight must be a positive integer value"
       );
