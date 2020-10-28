@@ -31,9 +31,9 @@ function Flights() {
       throw new Error("Total distance is greater than distance limit");
     }
 
-    if (total_distance == distance_limit / 2) {
+    if (total_distance <= distance_limit / 2) {
       return "The revision needs to be done within the next 3 months";
-    } else if (total_distance <= (3 * distance_limit) / 4) {
+    } else if (total_distance <= (3 / 4) * distance_limit) {
       return "The revision needs to be done within the next 2 months";
     } else if (total_distance <= distance_limit) {
       return "The revision needs to be done within the next month";
