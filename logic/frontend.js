@@ -17,8 +17,7 @@ function onCalculateNumberOfFlights() {
   } catch (error) {
     document.getElementById("flights").innerHTML = error;
   } finally {
-    console.log(no_of_pasengers);
-    console.log(no_of_flights);
+    console.log(no_of_pasengers + "with " + no_of_flights);
   }
 }
 
