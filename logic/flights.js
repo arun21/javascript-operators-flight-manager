@@ -1,6 +1,6 @@
 function Flights() {
   function calculateNumberOfFlights(no_of_pasengers, flight_capacity) {
-    var no_of_flights;
+    let no_of_flights;
 
     if (no_of_pasengers < 0) {
       throw new Error(
@@ -16,15 +16,19 @@ function Flights() {
     if (no_of_pasengers % flight_capacity == 0) {
       no_of_flights = no_of_pasengers / flight_capacity;
     } else {
-      no_of_flights = no_of_pasengers / flight_capacity + 1;
+      no_of_flights = Math.floor(no_of_pasengers / flight_capacity) + 1;
     }
     return no_of_flights;
   }
 
   function checkAircraftRevision(distance_limit, distances) {
-    var total_distance = distances.reduce((acc, value) => {
+    let total_distance = distances.reduce((acc, value) => {
       return acc + value;
     });
+
+    if (total_distance > distance_limit) {
+      throw new Error("Total distance is greater than distance limit");
+    }
 
     if (total_distance == distance_limit / 2) {
       return "The revision needs to be done within the next 3 months";
@@ -38,8 +42,6 @@ function Flights() {
       total_distance <= distance_limit
     ) {
       return "The revision needs to be done within the next month";
-    } else if (total_distance > distance_limit) {
-      throw "Error: Total distance is greater than distance limit";
     }
   }
   return { calculateNumberOfFlights, checkAircraftRevision };
