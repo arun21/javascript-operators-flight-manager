@@ -3,11 +3,15 @@ function Flights() {
     var no_of_flights;
 
     if (no_of_pasengers < 0) {
-      throw "The number of passengers must be a positive integer value";
+      throw new Error(
+        "The number of passengers must be a positive integer value"
+      );
     }
 
     if (flight_capacity < 0) {
-      throw "The capacity of the flight must be a positive integer value";
+      throw new Error(
+        "The capacity of the flight must be a positive integer value"
+      );
     }
     if (no_of_pasengers % flight_capacity == 0) {
       no_of_flights = no_of_pasengers / flight_capacity;
