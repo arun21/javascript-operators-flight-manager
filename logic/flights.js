@@ -12,7 +12,7 @@ function Flights() {
     if (no_of_pasengers % flight_capacity == 0) {
       no_of_flights = no_of_pasengers / flight_capacity;
     } else {
-      no_of_flights = Math.ceil(no_of_pasengers / flight_capacity) + 1;
+      no_of_flights = no_of_pasengers / flight_capacity + 1;
     }
     return no_of_flights;
   }
