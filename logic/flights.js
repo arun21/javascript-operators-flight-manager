@@ -22,7 +22,8 @@ function Flights() {
   }
 
   function checkAircraftRevision(distance_limit, distances) {
-    let total_distance = distances.reduce((acc, value) => {
+    let total_distance = 0;
+    total_distance = distances.reduce((acc, value) => {
       return acc + value;
     });
 
@@ -32,15 +33,9 @@ function Flights() {
 
     if (total_distance == distance_limit / 2) {
       return "The revision needs to be done within the next 3 months";
-    } else if (
-      total_distance > distance_limit / 2 &&
-      total_distance <= (3 / 4) * distance_limit
-    ) {
+    } else if (total_distance <= (3 * distance_limit) / 4) {
       return "The revision needs to be done within the next 2 months";
-    } else if (
-      total_distance > (3 / 4) * distance_limit &&
-      total_distance <= distance_limit
-    ) {
+    } else if (total_distance <= distance_limit) {
       return "The revision needs to be done within the next month";
     }
   }
